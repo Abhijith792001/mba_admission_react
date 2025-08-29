@@ -239,49 +239,95 @@
   box-shadow: none !important;
 }
 
-  /* Custom image styling */
-        .custom-img {
-            width: 90% !important;
-            /* custom width, adjust as needed */
-            height: 150px !important;
-            /* custom height, change as needed */
+/* Custom image styling */
+.custom-img {
+  width: 90% !important;
+  /* custom width, adjust as needed */
+  height: 150px !important;
+  /* custom height, change as needed */
 
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* small subtle shadow */
-            border-radius: 8px;
-            /* optional: rounded corners */
-            display: block;
-            margin: 0 auto;
-            padding: 12px;
-            /* center the image */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* smooth hover effect */
-        }
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* small subtle shadow */
+  border-radius: 8px;
+  /* optional: rounded corners */
+  display: block;
+  margin: 0 auto;
+  padding: 12px;
+  /* center the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* smooth hover effect */
+}
 
-        /* Optional: hover effect for images */
-        .custom-img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-        }
+/* Optional: hover effect for images */
+.custom-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
 
-          .ftco-footer,
-  .ftco-footer p,
-  .ftco-footer .text,
-  .ftco-footer .ftco-heading-2 {
-    color: #999999 !important;
-  }
-  .ftco-footer a {
-    color: #999999 !important;
-  }
-  /* Optional: This makes links slightly darker when you hover over them */
-  .ftco-footer a:hover {
-    color: #333333 !important;
-  }
-  .ftco-footer-social li a {
-    background:linear-gradient(135deg, #a4123f, #d91b4d) !important;
-  }
+.ftco-footer,
+.ftco-footer p,
+.ftco-footer .text,
+.ftco-footer .ftco-heading-2 {
+  color: #999999 !important;
+}
 
-  .block-23 ul li .icon {
+.ftco-footer a {
+  color: #999999 !important;
+}
 
-    color: #a4123f !important;
+/* Optional: This makes links slightly darker when you hover over them */
+.ftco-footer a:hover {
+  color: #333333 !important;
+}
+
+.ftco-footer-social li a {
+  background: linear-gradient(135deg, #a4123f, #d91b4d) !important;
+}
+
+.block-23 ul li .icon {
+
+  color: #a4123f !important;
+}
+
+
+.step-section {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #a4123f;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #a4123f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.step-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.step-description {
+  margin-top: 8px;
+  margin-left: 40px;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.4;
 }

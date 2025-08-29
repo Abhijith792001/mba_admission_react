@@ -1,16 +1,50 @@
-import React from 'react'
+import { useEffect } from "react";
+import { useAsbInfoMutation } from "../../app/service/axios";
+import Lottie from "lottie-react";
+import loading from "../../assets/images/Loading/Loading.json";
+import AsbData from "../../components/ASB/ASB_API";
 
-function ASB() {
+
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const ASB: React.FC = () => {
+  const [asbInfo, { data, error, isLoading }] = useAsbInfoMutation();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      asbInfo({ id: "" });
+    };
+
+    fetchData();
+  }, [asbInfo]);
+  if (isLoading) {
+    return (
+      <div className="d-flex flex-column justify-content-center align-items-center">
+        <p className="m-0">Asb data is Loading.....</p>
+        <Lottie animationData={loading} loop={true} />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="d-flex flex-column justify-content-center align-items-center">
+        <p className="m-0">Something went wrong</p>
+      </div>
+    );
+  }
+
   return (
-     <section className="asb-section container-lg-fluid container-md my-5">
+    <section className="asb-section container-lg-fluid container-md my-5">
       <div className="row g-4">
         {/* Left Content */}
         <div className="col-lg-8">
-          <h3 className="section-title">Amrita School of Business (ASB)</h3>
-          <p>
-            Amrita School of Business (ASB) invites applications for the 2025 intake across its campuses at{" "}
-            <strong>Amritapuri, Bengaluru, Coimbatore, Amaravati, Mysuru,</strong> and <strong>Kochi</strong>. Known for its rigorous academic environment and industry-oriented curriculum, ASB offers a comprehensive MBA program that equips students with the skills and knowledge needed to excel in the global business landscape.
-          </p>
+          <h3 className="section-title">{data?.data[0]?.title}</h3>
+          {/* <p>{data?.data[0]?.description}</p> */}
+          <div
+  dangerouslySetInnerHTML={{ __html: data?.data[0]?.description || "" }}
+/>
+
 
           <div className="contact-box">
             <h5>Contact Us</h5>
@@ -49,7 +83,8 @@ function ASB() {
               </p>
               <hr />
               <p className="closed-text">
-                Admissions are now <strong>closed</strong> for the Coimbatore, Bengaluru, Amritapuri, Amaravati and Kochi campuses.
+                Admissions are now <strong>closed</strong> for the{" "}
+                {AsbData["campuses"].join(" , ")} campuses.
               </p>
             </div>
           </div>
@@ -57,6 +92,6 @@ function ASB() {
       </div>
     </section>
   );
-}
+};
 
-export default ASB
+export default ASB;
